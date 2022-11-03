@@ -6,9 +6,9 @@ function Search() {
   return (
     <div className="search-wrapper">
       <button className="search-button">
-        <SearchOutlinedIcon />
+        <SearchOutlinedIcon style={{ fontSize: 26 }} />
       </button>
-      <input className="search-input" type="text" placeholder="Search" />
+      <input className="search-input" type="text" placeholder="Search anything..." />
     </div>
   );
 }
