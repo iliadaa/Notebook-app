@@ -9,7 +9,7 @@ function Notes(props) {
     <>
       <div className='note-container'>
         <div className='note-value-container'>
-          <h2 className='note-value'>{props.value}</h2>
+          <h3 className='note-value'>{props.value}</h3>
         </div>
       </div>
     </>

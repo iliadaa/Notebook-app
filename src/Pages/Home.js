@@ -19,6 +19,10 @@ function Home(props) {
       <div className="home">
         <div className="left-layout">
           <Search />
+          <div className="all-notes">
+            <h3>All Notes</h3>
+            <NotesList notes={notes} />
+          </div>
         </div>
         <div className="right-layout">
           <div className="category">
