@@ -1,10 +1,17 @@
 import React from "react";
-import "./Notes.scss";
+import './Notes.scss';
 
-function Notes() {
+
+function Notes(props) {
+  // console.log(props)
+
   return (
     <>
-      <div className="set-new-notes"></div>
+      <div className='note-container'>
+        <div className='note-value-container'>
+          <h2 className='note-value'>{props.value}</h2>
+        </div>
+      </div>
     </>
   );
 }

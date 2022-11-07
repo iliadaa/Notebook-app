@@ -1,13 +1,15 @@
 .category-container {
     color: darkgray;
-    width: 20%;
+
 }
+
 .category-date {
     display: flex;
     font-size: 22px;
     margin: 10px;
     font-weight: bold;
 }
+
 .category-title {
     font-size: 40px;
     font-weight: bold;
@@ -17,6 +19,7 @@
 .date {
     margin: 5px 5px 5px 15px;
 }
+
 .date::before {
     content: "";
     display: inline-block;
