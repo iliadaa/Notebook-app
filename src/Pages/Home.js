@@ -2,16 +2,13 @@ import React from "react";
 import "./Home.scss";
 import { useState } from "react";
 import Search from "../components/search/Search";
-import AddNotes from "../components/add-new-notes/AddNotes";
 import Category from "../components/category/Category";
-import NotesList from "../components/noteslist/NotesList"
-
-function Home(props) {
-  const [notes, setNotes] = useState([])
-
+import NotesList from "../components/noteslist/NotesList";
+import Notes from "../components/add-notes/Notes";
+function Home() {
+  const [notes, setNotes] = useState([]);
   const getNotes = (info) => {
-    setNotes(info)
-
+    setNotes((notes) => [...notes, info]);
   };
 
   return (
@@ -28,7 +25,7 @@ function Home(props) {
           <div className="category">
             <Category />
           </div>
-          <AddNotes getNotes={getNotes} />
+          <Notes getNotes={getNotes} />
           <NotesList notes={notes} />
         </div>
       </div>

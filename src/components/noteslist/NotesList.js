@@ -4,26 +4,26 @@ import DummyNotes from "../../dummyNotes.json"
 import './NotesList.scss';
 
 function NotesList(props) {
-    const allData = [props.notes]
-    const alldata = [...allData[0]]
+    const { notes } = props;
+    //const alldata = [...allData]
 
-    console.log("all data", alldata)
-
-    console.log(DummyNotes, "helo")
+    console.log("all data", notes)
+    //console.log(DummyNotes, "helo")
 
     return (
 
         <div className='notes-list-container'>
             <div className='notes-list' >
-                {DummyNotes.map(note => (
-                    <Notes key={note.key} value={note.description} id={note.id} />
+                {DummyNotes.map((note, index) => (
+                    <Notes key={index} value={note.description} id={note.id} />
                 ))}
             </div>
             <div className='notes-list' >
-                {alldata.map(note => (
+                {notes.map(note => (
                     <Notes key={note.key} value={note.value} id={note.id} />
                 ))}
             </div>
+
         </div>
 
     )
