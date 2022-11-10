@@ -1,9 +1,8 @@
 import React from "react";
 import './Notes.scss';
 
-
 function Notes(props) {
-  console.log(props)
+
   return (
     <>
       <div className='note-container'>

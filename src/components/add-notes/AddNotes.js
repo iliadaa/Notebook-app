@@ -1,27 +1,34 @@
-import React, { useState, useRef } from "react";
-import "./Notes.scss";
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from "react";
+import "./AddNotes.scss";
+import CloseIcon from "@mui/icons-material/Close";
+
+let nextId = 0;
+
 function Notes(props) {
-  const [inputNotes, setInputNotes] = useState("");
-  let nextId = 0;
+  const [inputNotes, setInputNotes] = useState({
+    title: "",
+    description: "",
+  });
 
-  const handleSubmit = (event) => {
-    setInputNotes(event.target.value);
-
+  const handleSubmit = (e) => {
+    const { name, value } = e.target;
+    setInputNotes({
+      ...inputNotes,
+      [name]: value,
+    });
+    e.preventDefault();
   };
-  const descriptionRef = useRef()
 
   const Submit = (e) => {
-
-    if (inputNotes.trim().length !== 0) {
-      props.getNotes(
-        {
-          value: inputNotes,
-          id: nextId++,
-          key: Date.now(),
-        });
-    }
-    setInputNotes("")
+    props.getNotes({
+      value: inputNotes,
+      id: nextId++,
+      key: Date.now(),
+    });
+    setInputNotes({
+      title: "",
+      description: "",
+    });
     e.preventDefault();
   };
 
@@ -33,19 +40,28 @@ function Notes(props) {
             <label className="label">Title:</label>
             <input
               className="input"
-              value={inputNotes}
+              name="title"
+              value={inputNotes.title}
               onChange={handleSubmit}
             />
           </div>
           <div className="description-notes display">
             <label className="label">Description:</label>
-            <textarea className="input" />
+            <textarea
+              className="input"
+              name="description"
+              value={inputNotes.description}
+              onChange={handleSubmit}
+            />
           </div>
           <div className="tags-notes display">
             <label className="label">Tags:</label>
             <ul className="input-tag-notes-list">
               <li>
-                item 1 <button type="button"><CloseIcon /></button>
+                item 1
+                <button type="button">
+                  <CloseIcon />
+                </button>
               </li>
               <li className="input-tag-notes">
                 <input type="text" />

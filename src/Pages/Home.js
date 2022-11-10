@@ -4,13 +4,12 @@ import { useState } from "react";
 import Search from "../components/search/Search";
 import Category from "../components/category/Category";
 import NotesList from "../components/noteslist/NotesList";
-import Notes from "../components/add-notes/Notes";
+import AddNotes from "../components/add-notes/AddNotes";
 function Home() {
   const [notes, setNotes] = useState([]);
   const getNotes = (info) => {
     setNotes((notes) => [...notes, info]);
   };
-
   return (
     <>
       <div className="home">
@@ -25,7 +24,7 @@ function Home() {
           <div className="category">
             <Category />
           </div>
-          <Notes getNotes={getNotes} />
+          <AddNotes getNotes={getNotes} />
           <NotesList notes={notes} />
         </div>
       </div>
