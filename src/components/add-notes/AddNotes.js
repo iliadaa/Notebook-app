@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./AddNotes.scss";
-import CloseIcon from "@mui/icons-material/Close";
-
 let nextId = 0;
 
 function Notes(props) {
@@ -60,7 +58,7 @@ function Notes(props) {
               <li>
                 item 1
                 <button type="button">
-                  <CloseIcon />
+                  +
                 </button>
               </li>
               <li className="input-tag-notes">

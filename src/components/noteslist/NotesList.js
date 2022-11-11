@@ -10,12 +10,12 @@ function NotesList(props) {
         <div className='notes-list-container'>
             <div className='notes-list' >
                 {DummyNotes.map((note, index) => (
-                    <Notes key={index} value={note.description} id={note.id} />
+                    <Notes key={index} value={note} id={note.id} />
                 ))}
             </div>
             <div className='notes-list' >
                 {notes.map((note, index) => (
-                    <Notes key={index} value={note.value.description} />
+                    <Notes key={index} value={note.value} />
                 ))}
             </div>
 

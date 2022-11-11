@@ -3,9 +3,32 @@
     background: aliceblue;
     border-radius: 5px;
     padding-left: 5px;
+    margin: 10px;
+
 }
 
 h3.note-value {
     margin: 15px;
     font-size: 20px;
+}
+
+.tag-notes-list {
+    display: inline-flex;
+    list-style: none;
+    padding: 0 5px 5px 5px;
+    margin: 0;
+}
+
+h3.note-value-title {
+    margin: 0;
+    padding: 5px;
+}
+
+h6.note-value-description {
+    margin: 0;
+    padding: 5px;
+}
+
+.li-notes-tags {
+    margin: 2px;
 }
