@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+import AddTags from "../add-tags/AddTags";
 import "./AddNotes.scss";
 let nextId = 0;
 
@@ -6,7 +8,19 @@ function Notes(props) {
   const [inputNotes, setInputNotes] = useState({
     title: "",
     description: "",
+
   });
+
+  const [tags, setTags] = useState([]);
+
+  const getTags = (info) => {
+    setTags((tags) => [...tags, info]);
+  };
+
+  const removeTags = (index) => {
+    const newTags = tags.filter((_, i) => i !== index);
+    setTags(newTags);
+  };
 
   const handleSubmit = (e) => {
     const { name, value } = e.target;
@@ -18,15 +32,19 @@ function Notes(props) {
   };
 
   const Submit = (e) => {
-    props.getNotes({
-      value: inputNotes,
-      id: nextId++,
-      key: Date.now(),
-    });
+    if (inputNotes.title.trim().length && inputNotes.description.trim().length !== 0) {
+      props.getNotes({
+        value: inputNotes,
+        id: nextId++,
+        key: Date.now(),
+        tag: tags
+      });
+    }
     setInputNotes({
       title: "",
       description: "",
     });
+    setTags([""])
     e.preventDefault();
   };
 
@@ -52,28 +70,31 @@ function Notes(props) {
               onChange={handleSubmit}
             />
           </div>
+
+
           <div className="tags-notes display">
             <label className="label">Tags:</label>
             <ul className="input-tag-notes-list">
-              <li>
-                item 1
-                <button type="button">
-                  +
-                </button>
-              </li>
-              <li className="input-tag-notes">
-                <input type="text" />
-              </li>
+              {tags.map((showTag, index) => (
+                <li key={index} >
+                  {showTag.tag}
+                  <button type="button" onClick={() => removeTags(index)} >
+                    +
+                  </button>
+                </li>
+              ))}
+
             </ul>
+            <AddTags getTags={getTags} />
           </div>
         </div>
         <div className="buttton-add-notes">
-          <button type="submit" className="notes-button ">
+          <button type="submit" className="notes-button " >
             Create
           </button>
         </div>
       </div>
-    </form>
+    </form >
   );
 }
 

@@ -5,17 +5,19 @@ import './NotesList.scss';
 
 function NotesList(props) {
     const { notes } = props
-
+    console.log(notes)
+    console.log(props, "Notes List")
     return (
         <div className='notes-list-container'>
-            <div className='notes-list' >
+            {/** */}<div className='notes-list' >
                 {DummyNotes.map((note, index) => (
-                    <Notes key={index} value={note} id={note.id} />
+
+                    <Notes key={index} value={note} id={note.id} tag={note.tags} />
                 ))}
             </div>
             <div className='notes-list' >
                 {notes.map((note, index) => (
-                    <Notes key={index} value={note.value} />
+                    <Notes key={index} value={note.value} tag={note.tag} />
                 ))}
             </div>
 

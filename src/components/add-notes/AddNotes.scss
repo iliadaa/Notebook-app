@@ -18,6 +18,7 @@
     font-size: 20px;
     font-weight: bold;
     color: #5da6a9cc;
+    cursor: pointer;
 
 }
 
@@ -105,4 +106,17 @@ h3.note-value {
     padding-top: 15px;
     font-weight: 400;
     padding-bottom: 15px;
+}
+
+.input-button-tag {
+    display: inline-flex;
+}
+
+.button-tag {
+    border: none;
+    background-color: transparent;
+}
+
+input.input-tag {
+    width: 50%;
 }

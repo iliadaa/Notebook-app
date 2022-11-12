@@ -10,6 +10,7 @@ function Home() {
   const getNotes = (info) => {
     setNotes((notes) => [...notes, info]);
   };
+  console.log(notes, "note")
 
   return (
     <>

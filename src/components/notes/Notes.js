@@ -3,6 +3,7 @@ import './Notes.scss';
 
 function Notes(props) {
 
+  console.log(props)
   return (
     <>
       <div className='note-container'>
@@ -12,12 +13,12 @@ function Notes(props) {
         </div>
         <div className="tags-value">
           <ul className="tag-notes-list">
-            <li className="li-notes-tags">
-              item 1
-            </li>
-            <li className="li-notes-tags">
-              item 1
-            </li>
+            {props.tag.map((showTag, index) => (
+              <li key={index} className="li-notes-tags">
+                {showTag.tag}
+              </li>
+            ))
+            }
           </ul>
         </div>
       </div>
