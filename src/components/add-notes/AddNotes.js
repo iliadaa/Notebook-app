@@ -5,11 +5,13 @@ import "./AddNotes.scss";
 let nextId = 0;
 
 function Notes(props) {
+
   const [inputNotes, setInputNotes] = useState({
     title: "",
     description: "",
-
   });
+
+
 
   const [tags, setTags] = useState([]);
 
@@ -48,6 +50,12 @@ function Notes(props) {
     e.preventDefault();
   };
 
+  // useEffect(() => {
+  //  localStorage.setInputNotes('items', JSON.stringify(inputNotes));
+  //}, [inputNotes]);
+  //console.log(inputNotes, "Local store")
+
+
   return (
     <form onSubmit={Submit}>
       <div className="notes">
@@ -70,8 +78,6 @@ function Notes(props) {
               onChange={handleSubmit}
             />
           </div>
-
-
           <div className="tags-notes display">
             <label className="label">Tags:</label>
             <ul className="input-tag-notes-list">
