@@ -14,7 +14,8 @@ function Search() {
   //useEffect(() => {
   //  setItems();
   // }, []);
-
+  const displayNotes = dummynotes.filter(note => note.tags.includes(search.toLowerCase()));
+  console.log(displayNotes)
   return (
     <>
       <div className="search-wrapper">
@@ -34,15 +35,11 @@ function Search() {
       <div>
         <h3>All Notes</h3>
         <div>
-          {dummynotes
-            .filter((notes) => {
-              notes.tags.filter((tag) =>
-                Object.values(tag).includes(search.toLowerCase())
-              );
-            })
-            .map((note) => {
-              return <Notes value={note} tag={note.tags} />;
-            })}
+          {displayNotes.map(note => {
+            return (
+              <Notes key={note.id} value={note} tag={note.tags} />
+            );
+          })}
         </div>
       </div>
     </>

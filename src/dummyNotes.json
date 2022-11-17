@@ -4,27 +4,27 @@
     "title": "Title 1",
     "category": "",
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m",
-    "tags": [{ "tag": "tag1" }, { "tag": "tag2" }, { "tag": "tag3" }]
+    "tags": ["tag1", "tag2", "tag3"]
   },
   {
     "id": "2",
     "title": "Title 2",
     "category": "",
     "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-    "tags": [{ "tag": "tag4" }, { "tag": "tag5" }, { "tag": "tag6" }]
+    "tags": ["tag4", "tag5", "tag6"]
   },
   {
     "id": "3",
     "title": "Title 3",
     "category": "",
     "description": "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
-    "tags": [{ "tag": "tag7" }, { "tag": "tag8" }, { "tag": "tag9" }]
+    "tags": ["tag7", "tag8", "tag9"]
   },
   {
     "id": "4",
     "title": "Title 4",
     "category": "",
     "description": "Nulla consequat massa quis enim. Donec.",
-    "tags": [{ "tag": "tag10" }, { "tag": "tag11" }, { "tag": "tag12" }]
+    "tags": ["tag10", "tag11", "tag12"]
   }
 ]
