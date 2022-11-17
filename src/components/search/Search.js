@@ -3,19 +3,34 @@ import "./Search.scss";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import dummynotes from "../../dummyNotes.json";
 import Notes from "../notes/Notes";
-//import NotesList from "../noteslist/NotesList";
 
-function Search() {
-  // const { items } = props
-  //const dummynotestag = dymmynotes
-  //  const [items, setItems] = useState();
+function Search(props) {
+  const { notes } = props;
   const [search, setSearch] = useState("");
 
-  //useEffect(() => {
-  //  setItems();
-  // }, []);
-  const displayNotes = dummynotes.filter(note => note.tags.includes(search.toLowerCase()));
-  console.log(displayNotes)
+  const displayFakeNotes = dummynotes.filter((note) => {
+    if (search === "") {
+      return note;
+    } else {
+      console.log(note.tags.includes(search.toLowerCase()));
+      note.tags.includes(search.toLowerCase());
+    }
+  });
+
+  console.log(displayFakeNotes);
+  const fakeTag = displayFakeNotes.map((note) => {
+    console.log(note);
+    return <Notes key={note.id} value={note} tag={note.tags} />;
+  });
+
+  const displayNotes = notes.filter((note) =>
+    note.tag.includes(search.toLowerCase())
+  );
+
+  const displayTags = displayNotes.map((note) => {
+    return <Notes key={note.id} value={note.value} tag={note.tag} />;
+  });
+  console.log(displayTags);
   return (
     <>
       <div className="search-wrapper">
@@ -34,13 +49,8 @@ function Search() {
       </div>
       <div>
         <h3>All Notes</h3>
-        <div>
-          {displayNotes.map(note => {
-            return (
-              <Notes key={note.id} value={note} tag={note.tags} />
-            );
-          })}
-        </div>
+        {fakeTag}
+        {displayTags}
       </div>
     </>
   );

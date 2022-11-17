@@ -6,23 +6,17 @@ import Category from "../components/category/Category";
 import NotesList from "../components/noteslist/NotesList";
 import AddNotes from "../components/add-notes/AddNotes";
 function Home() {
-
   const [notes, setNotes] = useState([]);
+
   const getNotes = (info) => {
     setNotes((notes) => [...notes, info]);
   };
-
-
 
   return (
     <>
       <div className="home">
         <div className="left-layout">
           <Search notes={notes} />
-          <div className="all-notes">
-
-            {/* <NotesList notes={notes} /> */}
-          </div>
         </div>
         <div className="right-layout">
           <div className="category">

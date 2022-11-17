@@ -1,17 +1,13 @@
-
 import React, { useState } from "react";
 import AddTags from "../add-tags/AddTags";
 import "./AddNotes.scss";
 let nextId = 0;
 
 function Notes(props) {
-
   const [inputNotes, setInputNotes] = useState({
     title: "",
     description: "",
   });
-
-
 
   const [tags, setTags] = useState([]);
 
@@ -34,27 +30,24 @@ function Notes(props) {
   };
 
   const Submit = (e) => {
-    if (inputNotes.title.trim().length && inputNotes.description.trim().length !== 0) {
+    if (
+      inputNotes.title.trim().length &&
+      inputNotes.description.trim().length !== 0
+    ) {
       props.getNotes({
         value: inputNotes,
         id: nextId++,
         key: Date.now(),
-        tag: tags
+        tag: tags,
       });
     }
     setInputNotes({
       title: "",
       description: "",
     });
-    setTags([""])
+    setTags([""]);
     e.preventDefault();
   };
-
-  // useEffect(() => {
-  //  localStorage.setInputNotes('items', JSON.stringify(inputNotes));
-  //}, [inputNotes]);
-  //console.log(inputNotes, "Local store")
-
 
   return (
     <form onSubmit={Submit}>
@@ -82,25 +75,24 @@ function Notes(props) {
             <label className="label">Tags:</label>
             <ul className="input-tag-notes-list">
               {tags.map((showTag, index) => (
-                <li key={index} >
-                  {showTag.tag}
-                  <button type="button" onClick={() => removeTags(index)} >
+                <li key={index}>
+                  {showTag}
+                  <button type="button" onClick={() => removeTags(index)}>
                     +
                   </button>
                 </li>
               ))}
-
             </ul>
             <AddTags getTags={getTags} />
           </div>
         </div>
         <div className="buttton-add-notes">
-          <button type="submit" className="notes-button " >
+          <button type="submit" className="notes-button ">
             Create
           </button>
         </div>
       </div>
-    </form >
+    </form>
   );
 }
 
