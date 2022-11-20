@@ -8,18 +8,12 @@ function Search(props) {
   const { notes } = props;
   const [search, setSearch] = useState("");
 
-  const displayFakeNotes = dummynotes.filter((note) => {
-    if (search === "") {
-      return note;
-    } else {
-      console.log(note.tags.includes(search.toLowerCase()));
-      note.tags.includes(search.toLowerCase());
-    }
-  });
+  const displayFakeNotes = dummynotes.filter((note) =>
+    note.tags.includes(search.toLowerCase())
+  );
 
   console.log(displayFakeNotes);
   const fakeTag = displayFakeNotes.map((note) => {
-    console.log(note);
     return <Notes key={note.id} value={note} tag={note.tags} />;
   });
 
@@ -30,7 +24,7 @@ function Search(props) {
   const displayTags = displayNotes.map((note) => {
     return <Notes key={note.id} value={note.value} tag={note.tag} />;
   });
-  console.log(displayTags);
+
   return (
     <>
       <div className="search-wrapper">
@@ -47,8 +41,8 @@ function Search(props) {
           }}
         />
       </div>
-      <div>
-        <h3>All Notes</h3>
+      <div >
+        <h3 className="all-notes-title">All Notes</h3>
         {fakeTag}
         {displayTags}
       </div>

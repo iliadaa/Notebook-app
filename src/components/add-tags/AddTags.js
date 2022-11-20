@@ -25,7 +25,7 @@ function Tags(props) {
         onChange={handleChange}
       />
       <button className="button-tag" type="submit" onClick={AddTags}>
-        add
+        Add
       </button>
     </div>
   );
